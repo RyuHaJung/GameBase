@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UIEventHandler : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class UIEventHandler : MonoBehaviour, IPointerClickHandler , IPointerDownHandler, IPointerUpHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     public Action OnClickHandler = null;
     public Action OnPressedHandler = null;
@@ -24,7 +24,7 @@ public class UIEventHandler : MonoBehaviour, IPointerClickHandler, IPointerDownH
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (OnClickHandler != null)
+        if(OnClickHandler != null)
         {
             OnClickHandler.Invoke();
         }
@@ -49,12 +49,12 @@ public class UIEventHandler : MonoBehaviour, IPointerClickHandler, IPointerDownH
     }
 
     public void OnBeginDrag(PointerEventData eventData)
-    {
+    {     
         OnBeginDragHandler?.Invoke(eventData);
     }
 
     public void OnEndDrag(PointerEventData eventData)
-    {
+    {       
         OnEndDragHandler?.Invoke(eventData);
     }
 }
